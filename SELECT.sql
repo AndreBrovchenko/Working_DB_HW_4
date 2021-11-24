@@ -1,25 +1,25 @@
-# 1_ДЗ_альбомы, вышедшие в 2018 году
+п»ї# 1_Р”Р—_Р°Р»СЊР±РѕРјС‹, РІС‹С€РµРґС€РёРµ РІ 2018 РіРѕРґСѓ
 SELECT Albums.album_name, Albums.year_issue_album
 FROM Albums
 WHERE (((Albums.year_issue_album)=2018));
-# 2_ДЗ_трек максимальной длительности
+# 2_Р”Р—_С‚СЂРµРє РјР°РєСЃРёРјР°Р»СЊРЅРѕР№ РґР»РёС‚РµР»СЊРЅРѕСЃС‚Рё
 SELECT track_name, track_duration
 FROM tracks
 WHERE track_duration IN (SELECT MAX(track_duration) FROM tracks);
-# 3_ДЗ_Треки длительностью не менее 3,5 минуты
+# 3_Р”Р—_РўСЂРµРєРё РґР»РёС‚РµР»СЊРЅРѕСЃС‚СЊСЋ РЅРµ РјРµРЅРµРµ 3,5 РјРёРЅСѓС‚С‹
 SELECT Tracks.track_name
 FROM Tracks
 WHERE (((Tracks.track_duration)>3.5));
-# 4_ДЗ_Сборники вышедшие с 2018 по 2020
+# 4_Р”Р—_РЎР±РѕСЂРЅРёРєРё РІС‹С€РµРґС€РёРµ СЃ 2018 РїРѕ 2020
 SELECT AlbumCollections.album_collection_name, AlbumCollections.year_issue_collection
 FROM AlbumCollections
 WHERE (((AlbumCollections.year_issue_collection) Between 2018 And 2020));
-# 5_ДЗ_Исполнители имя которых состоит из 1 слова
+# 5_Р”Р—_РСЃРїРѕР»РЅРёС‚РµР»Рё РёРјСЏ РєРѕС‚РѕСЂС‹С… СЃРѕСЃС‚РѕРёС‚ РёР· 1 СЃР»РѕРІР°
 SELECT Singers.singer_name
 FROM Singers
 WHERE ((( length(Singers.singer_name)- length(Replace(Singers.singer_name,' ',''))+1)=1));
-# 6_ДЗ_треки которые содержат слово "мой"_или_*my*
+# 6_Р”Р—_С‚СЂРµРєРё РєРѕС‚РѕСЂС‹Рµ СЃРѕРґРµСЂР¶Р°С‚ СЃР»РѕРІРѕ "РјРѕР№"_РёР»Рё_*my*
 SELECT Tracks.track_name
 FROM Tracks
-WHERE lower(Tracks.track_name) LIKE 'my%%' OR lower(Tracks.track_name) LIKE 'мой%%';
+WHERE lower(Tracks.track_name) LIKE 'my%%' OR lower(Tracks.track_name) LIKE 'РјРѕР№%%';
 
